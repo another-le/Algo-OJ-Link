@@ -141,7 +141,27 @@
 
 [LibreOJ - 10000](https://vjudge.net/problem/LibreOJ-10000/origin)
 
+### 部分背包问题
+
+[洛谷 - P2240](https://vjudge.net/problem/洛谷-P2240/origin)
+
 ### 最优装载
 
 [CSG - 1411](https://vjudge.net/problem/CSG-1411/origin)
+
+### 哈夫曼编码
+
+[CSG - 1395](https://vjudge.net/problem/CSG-1395/origin)
+
+### 单源最短路径
+
+[洛谷 - P4779](https://vjudge.net/problem/洛谷-P4779/origin)
+
+[UniversalOJ - 622](https://vjudge.net/problem/UniversalOJ-622/origin)
+
+### 最小生成树
+
+无向图：[51Nod - 1212](https://vjudge.net/problem/51Nod-1212/origin)  [LibreOJ - 123 ](https://vjudge.net/problem/LibreOJ-123/origin)
+
+最小生成树的数量： [LibreOJ - 10070 ](https://vjudge.net/problem/LibreOJ-10070/origin)
 
