@@ -165,3 +165,40 @@
 
 最小生成树的数量： [LibreOJ - 10070 ](https://vjudge.net/problem/LibreOJ-10070/origin)
 
+## 回溯法
+
+### 旅行售货员问题  
+
+[CSG - 1431](https://vjudge.net/problem/CSG-1431/origin)
+
+### 装载问题
+
+不完全一样，但是差不多：[洛谷 - P1049](https://vjudge.net/problem/洛谷-P1049/origin)
+
+### 批处理作业调度
+
+没有找到
+
+### 符号三角形
+
+[HDU - 2510](https://vjudge.net/problem/HDU-2510/origin)
+
+### n后问题
+
+[洛谷 - T247305](https://vjudge.net/problem/洛谷-T247305/origin)
+
+### 0-1背包问题
+
+[洛谷 - U315727 ](https://vjudge.net/problem/洛谷-U315727/origin)
+
+### 最大团问题
+
+不仅仅求最大团，而且要求最大独立集：[洛谷 - P12371 ](https://vjudge.net/problem/洛谷-P12371/origin)
+
+### 图的m着色问题
+
+[洛谷 - P2819](https://vjudge.net/problem/洛谷-P2819/origin)
+
+### 圆排列问题
+
+[CSG - 1432](https://vjudge.net/problem/CSG-1432/origin)
