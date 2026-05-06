@@ -220,3 +220,94 @@
 [牛客 - 16813](https://vjudge.net/problem/牛客-16813/origin)
 
 [计蒜客 - T2149 ](https://vjudge.net/problem/计蒜客-T2149/origin)
+
+## 分支界限法
+
+本章节的很多题目和[回溯法](##回溯法)这一章节题目相同，这里就不再赘述了。
+
+> **分支限界法相比于回溯法，更强调利用“限界函数”剪掉那些不可能产生（更优）最优解的分支，从而加速找到最优解。但实际上，我们在回溯中已经强调了两种剪枝函数：**
+>
+> - 用约束函数在扩展结点处剪去不满足约束的子树；（你是不是可行解？）
+> - 用限界函数剪去得不到最优解的子树（你是不是最优解？）
+>
+> 所以从通俗意义上，两者的区别可以理解成搜索策略不同罢了。
+
+### 单源最短路径
+
+可见[单源最短路径](###单源最短路径) 。
+
+### 布线问题
+
+[POJ - 3984 ](https://vjudge.net/problem/POJ-3984/origin)
+
+### 0-1背包问题
+
+分支界限示例代码：
+
+```c++
+#include <iostream>
+#include <vector>
+#include <queue>
+using namespace std;
+
+struct Node {
+    int ew;   // 当前重量
+    int i;    // 下一个物品下标
+    int ub;   // 上界
+    Node(int ew, int i, int ub) : ew(ew), i(i), ub(ub) {}
+    // 优先队列按上界降序
+    bool operator<(const Node& o) const { return ub < o.ub; }
+};
+
+int maxLoading(int n, int c, const vector<int>& w) {
+    // 后缀和
+    vector<int> r(n + 1, 0);
+    for (int i = n - 1; i >= 0; --i) r[i] = r[i + 1] + w[i];
+
+    int bestw = 0;
+    priority_queue<Node> pq;
+    pq.emplace(0, 0, r[0]);  // 根节点
+
+    while (!pq.empty()) {
+        Node cur = pq.top(); pq.pop();
+
+        // 节点级剪枝
+        if (cur.ub <= bestw) continue;
+
+        // 到达叶节点
+        if (cur.i == n) {
+            bestw = max(bestw, cur.ew);
+            continue;
+        }
+
+        // 左儿子：装
+        int wt = cur.ew + w[cur.i];
+        if (wt <= c) {
+            int leftUb = (cur.i + 1 < n) ? wt + r[cur.i + 1] : wt;
+            if (leftUb > bestw) pq.emplace(wt, cur.i + 1, leftUb);
+        }
+
+        // 右儿子：不装
+        int rightUb = (cur.i + 1 < n) ? cur.ew + r[cur.i + 1] : cur.ew;
+        if (rightUb > bestw) pq.emplace(cur.ew, cur.i + 1, rightUb);
+    }
+    return bestw;
+}
+
+int main() {
+    int n, c;
+    cin >> n >> c;
+    vector<int> w(n);
+    for (int i = 0; i < n; ++i) cin >> w[i];
+    cout << maxLoading(n, c, w) << endl;
+    return 0;
+}
+```
+
+### 批处理作业问题
+
+未找到。
+
+
+
+最后，祝大家备考顺利！！
